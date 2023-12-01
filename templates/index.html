@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Forest Regression Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Forest Regression Predictor</h1>
+    <div class="container">
+        <form id="prediction-form">
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" id="bedrooms" name="bedrooms" required>
+            <br>
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" id="bathrooms" name="bathrooms" step="0.1" required>
+            <br>
+            <label for="sqft_living">Sqft Living:</label>
+            <input type="number" id="sqft_living" name="sqft_living" required>
+            <br>
+            <label for="sqft_lot">Sqft Lot:</label>
+            <input type="number" id="sqft_lot" name="sqft_lot" required>
+            <br>
+            <label for="floors">Floors:</label>
+            <input type="number" id="floors" name="floors" step="0.1" required>
+            <br>
+            <label for="waterfront">Waterfront (0 for No, 1 for Yes):</label>
+            <input type="number" id="waterfront" name="waterfront" required>
+            <br>
+            <label for="view">View:</label>
+            <input type="number" id="view" name="view" required>
+            <br>
+            <label for="condition">Condition:</label>
+            <input type="number" id="condition" name="condition" required>
+            <br>
+            <label for="grade">Grade:</label>
+            <input type="number" id="grade" name="grade" required>
+            <br>
+            <label for="sqft_above">Sqft Above:</label>
+            <input type="number" id="sqft_above" name="sqft_above" required>
+            <br>
+            <label for="sqft_basement">Sqft Basement:</label>
+            <input type="number" id="sqft_basement" name="sqft_basement" required>
+            <br>
+            <label for="yr_built">Year Built:</label>
+            <input type="number" id="yr_built" name="yr_built" required>
+            <br>
+            <label for="yr_renovated">Year Renovated:</label>
+            <input type="number" id="yr_renovated" name="yr_renovated" required>
+            <br>
+            <label for="zipcode">Zipcode:</label>
+            <input type="number" id="zipcode" name="zipcode" required>
+            <br>
+            <label for="lat">Latitude:</label>
+            <input type="number" id="lat" name="lat" step="0.0001" required>
+            <br>
+            <label for="long">Longitude:</label>
+            <input type="number" id="long" name="long" step="0.0001" required>
+            <br>
+            <label for="sqft_living15">Sqft Living 15:</label>
+            <input type="number" id="sqft_living15" name="sqft_living15" required>
+            <br>
+            <label for="sqft_lot15">Sqft Lot 15:</label>
+            <input type="number" id="sqft_lot15" name="sqft_lot15" required>
+            <br>
+            <!-- Add more input fields for other features here -->
+            <button type="button" id="predict-button">Predict</button>
+        </form>
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p id="prediction-result"></p>
+        </div>
+    </div>
+
+    <script>
+        const predictionForm = document.getElementById('prediction-form');
+        const predictButton = document.getElementById('predict-button');
+        const predictionResult = document.getElementById('prediction-result');
+
+        predictButton.addEventListener('click', () => {
+            const formData = new FormData(predictionForm);
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Object.fromEntries(formData)),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.prediction) {
+                    predictionResult.textContent = `Predicted Price: $${data.prediction[0].toFixed(2)}`;
+                } else if (data.error) {
+                    predictionResult.textContent = `Error: ${data.error}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
