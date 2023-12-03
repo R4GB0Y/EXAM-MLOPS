@@ -101,13 +101,11 @@ Here is screenshots of an input prediction in fastapi :
 
 ## Flask
 
-Here is screenshots of an input prediction in flask and its index html form :
+Here is screenshots of an input prediction in flask :
 
-![Alt Text](flaskapi.png)
-
-![Alt Text](flaskapi.png)
+![Alt Text](f.png)
 
 
 # Conclusion:
 
-This project aims to demonstrate a comprehensive approach to building, deploying, and consuming machine learning models. By leveraging MLflow's tracking capabilities, FastAPI's efficient API development, and Docker's containerization, the project illustrates a robust deployment pipeline for machine learning models, ensuring scalability, reliability, and ease of consumption for end-users.
+In this project, we embarked on an ambitious journey to create a scalable ML model deployment pipeline. Our mission was to translate raw data into actionable insights and deliver robust predictive models to end-users. To accomplish this, we first carefully curated the King County, USA, house sales dataset, which served as the bedrock of our analysis. This dataset, comprising a wealth of real estate information, enabled us to glean valuable patterns and trends. Leveraging preprocessing techniques, we fine-tuned the dataset to optimize its utility for machine learning. Postman, the versatile API client, played a pivotal role in streamlining the communication between our FastAPI-based server and external systems, making real-time predictions seamless. Additionally, Docker containerization facilitated consistent model deployment and scaling, bolstering the reliability and reproducibility of our entire pipeline. This comprehensive approach, encompassing data preparation, FastAPI integration, Dockerization, and Postman-powered testing, has empowered us to not only build predictive models but also deploy them in a production-ready environment. Our project stands as a testament to the power of data science and machine learning in transforming data into actionable insights for decision-makers and end-users alike. With the King County dataset as our canvas, we've painted a portrait of the potential of data-driven solutions in the realm of real estate prediction and beyond.
