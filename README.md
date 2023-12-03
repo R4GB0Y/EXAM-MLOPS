@@ -89,6 +89,16 @@ Here is screenshots of an input prediction in fastapi :
 
 ![Alt Text](2.jpeg)
 
+## Harnessing Docker for Containerization
+
+![Alt Text](d1.png)
+
+![Alt Text](d2.png)
+
+## Utilizing Postman for API Testing
+
+![Alt Text](postman.png)
+
 ## Flask
 
 Here is screenshots of an input prediction in flask and its index html form :
