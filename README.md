@@ -85,9 +85,9 @@ Here is a screenshot of the mlflow logging accuracy results :
 ## Fastapi
 Here is screenshots of an input prediction in fastapi :
 
-![Alt Text](/FastAPI/1.jpeg)
+![Alt Text](1.jpeg)
 
-![Alt Text](FastAPI/2.jpeg)
+![Alt Text](2.jpeg)
 
 ## Flask
 
